@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.tittle }}</title>
+    {% load static %}
+    <link href="{% static 'css/button.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/tlo.css' %}" rel="stylesheet" />
+</head>
+<body>
+<h2><a>{{ post.title }}</a></h2>
+<hr> {{post.content|truncatewords:40|linebreaks}}
+<p>_____________________________________________________________________</p>
+<p>Data opublikowania: {{ post.published }}</p>
+<br>
+<br>
+<button type="submit" class="btn"><a href="/posty">Wstecz</a></button>
+</body>
+</html>

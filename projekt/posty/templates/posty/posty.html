@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ĆWIERKACZ</title>
+    {% load static %}
+    <link href="{% static 'css/tlo.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/button.css' %}" rel="stylesheet" />
+</head>
+<body>
+<button type="submit" class="btn"><a href="/wylogowanie">Wyloguj się</a></button>
+<button type="submit" class="btn"><a href="/posty/create">Stwórz post</a></button>
+<br>
+<br>
+<div class="container text-white">
+      <form  action="{% url 'wyszukaj' %}" method="get">
+        {% csrf_token %}
+        <input type="text" name="q" placeholder="wyszukaj">
+        <button type="submit" >Szukaj</button>
+      </form>
+      <h1>Ćwierkacz</h1>
+      {% for post in posts %}
+        <div class="col-md-8 mt-4 mb-4" style="background-color:#6d6e70;">
+          <h3>{{post.title}}</h3>
+          <p>{{post.created_at}}</p>
+          <a href="{% url 'post_detail' pk=post.id %}" class="btn btn-sm btn-primary">Read More</a>
+        </div>
+      {% endfor %}
+</div>
+<br>
+{% for posts in post %}
+<h2><a href="{{posts.get_absolute_url}}">{{ posts.title }}</a></h2>
+<p>Data opublikowania: {{posts.published}}</p>
+<hr> {{post.content|truncatewords:40|linebreaks}}
+{%endfor%}
+
+{% if post.has_previous %}
+<a href="{% url 'posty' %}?page={{post.previous_page_number}}">Previous Page</a>
+{% endif %}
+{% if post.has_next %}
+<a href="{% url 'posty' %}?page={{post.next_page_number}}">Next Page</a>
+{% endif %}
+</body>
+</html>

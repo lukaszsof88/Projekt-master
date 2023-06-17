@@ -1,0 +1,16 @@
+.btn{
+     background-color: #49aaff;
+     color: aliceblue;
+     font-size: 18px;
+     padding: 6px;
+     text-decoration: none;
+     transition-duration: 0.4s;
+     border: 1px solid #49aaff;
+     text-transform: uppercase;
+    }
+
+.btn:hover{
+           background-color: aliceblue;
+           color: #49aaff;
+           border: 1px solid #49aaff;
+          }

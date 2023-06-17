@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tworzenie postu</title>
+    {% load static %}
+    <link href="{% static 'css/button.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/tlo.css' %}" rel="stylesheet" />
+</head>
+<body>
+<h2>Tworzenie postu tutaj</h2>
+<form action="/posty/create" method="post">
+    {% csrf_token %}
+    <table>{{ form }}</table>
+    <input type="submit" value="Zapisz" class="btn btn-primary" required>
+  </form>
+</body>
+</html>

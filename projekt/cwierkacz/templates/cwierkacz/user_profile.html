@@ -1,0 +1,12 @@
+{% extends "cwierkacz/base.html" %}
+{% block title %}Profil użytkownika{% endblock title %}
+{% block content %}
+{% load static %}
+    <link href="{% static 'css/tlo.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/button.css' %}" rel="stylesheet" />
+
+<h1>Profil</h1>
+
+<a href="{% url 'posty' %}">Przeglądaj posty</a>
+
+{% endblock content %}

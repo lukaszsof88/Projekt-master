@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ĆWIERKACZ</title>
+    {% load static %}
+    <link href="{% static 'css/tlo.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/button.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+{% if posts %}
+  <center><h1> Wyniki wyszukwiania </h1></center>
+  <br>
+
+  {% for post in posts %}
+    <center><h2><a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h2></center>
+
+<!--    <center><h2> <a href="/posty.html/">    {{ post.title }}</a> </h2></center>-->
+  {% endfor %}
+{% else %}
+  <center><h1> Nic nie znaleziono </h1></center>
+{% endif %}
+<button type="submit" class="btn"><a href="/posty">Wstecz</a></button>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wylogowanie</title>
+    {% load static %}
+    <link href="{% static 'css/tlo.css' %}" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">Właśnie się wylogowano z konta</h5>
+        <p class="card-text">
+            Ćwierkacz pozdrawia
+        </p>
+        <br><hr><a href="{% url 'logowanie' %}" class="btn btn-primary">Zaloguj się ponownie</a>
+        </div>
+    </div>
+</body>
+</html>
